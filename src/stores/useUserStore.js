@@ -20,6 +20,11 @@ export const useUserStore = defineStore('user', {
     },
     logout() {
       this.loggedIn = false
+    },
+    check() {
+      return axios.get('/hbl/check').then((response) => {
+        this.loggedIn = response.data
+      })
     }
   }
 })

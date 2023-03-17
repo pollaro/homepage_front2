@@ -20,12 +20,7 @@ export default defineConfig(({ command, mode }) => {
       ...defaultConfig,
       server: {
         proxy: {
-          '/hbl/login/': {
-            target: isDev ? 'https://127.0.0.1:8000' : 'https://jimpollaro.com:8000',
-            changeOrigin: true,
-            secure: false
-          },
-          '/hbl/check/': {
+          '/hbl/': {
             target: isDev ? 'https://127.0.0.1:8000' : 'https://jimpollaro.com:8000',
             changeOrigin: true,
             secure: false
