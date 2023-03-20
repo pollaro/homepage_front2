@@ -3,12 +3,11 @@
     <div class="col-md-6 mx-auto">
       <div class="card card-container">
         <Form @submit="handleSubmit">
-          <div class="form-group mx-4 my-3">
+            <span>To access the Huckleberry Baseball League, Yahoo authorization is required.</span>
             <button class="btn btn-primary btn-block" :disabled="loading">
               Submit
               <span v-show="loading" class="spinner-border spinner-border-sm" />
             </button>
-          </div>
         </Form>
       </div>
     </div>
