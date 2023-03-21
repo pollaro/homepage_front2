@@ -2,8 +2,8 @@
   <div class="container">
     <div class="col-md-6 mx-auto">
       <div class="card card-container">
+        <span>To access the Huckleberry Baseball League, Yahoo authorization is required.</span>
         <Form @submit="handleSubmit">
-            <span>To access the Huckleberry Baseball League, Yahoo authorization is required.</span>
             <button class="btn btn-primary btn-block" :disabled="loading">
               Submit
               <span v-show="loading" class="spinner-border spinner-border-sm" />

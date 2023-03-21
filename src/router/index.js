@@ -1,4 +1,3 @@
-import HblTeamDetail from '@/components/hbl/HblTeamDetail.vue'
 import HblTeams from '@/components/hbl/HblTeams.vue'
 import HblHome from '@/views/hbl/HblHome.vue'
 import HomeView from '@/views/HomeView.vue'
