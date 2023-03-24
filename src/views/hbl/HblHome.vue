@@ -5,6 +5,7 @@
       <span class="mx-1">Huckleberry Baseball League</span>
       <nav class="navbar navbar-expand-lg mb-2 mb-lg-0">
         <router-link class='nav-item mx-1' to='/hbl/teams'>Teams</router-link>
+        <router-link class='nav-item mx-1' to='/hbl/roster'>Rosters</router-link>
       </nav>
     </div>
   </div>

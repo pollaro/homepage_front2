@@ -9,8 +9,8 @@
       </thead>
       <tbody class="align-middle">
         <tr v-for="team in this.teams" :key="team.team_id">
-          <td><a href="#" v-on:click="">{{team.name}}</a></td>
-          <td>{{team.managers.manager.nickname}}</td>
+          <td><a :href="'roster/'+team.team_id">{{ team.name }}</a></td>
+          <td>{{ team.managers.manager.nickname }}</td>
         </tr>
       </tbody>
     </table>
@@ -26,7 +26,7 @@ export default {
   name: "HblTeams",
   data() { return {loading: false, detailsLoading: false, teamId: 0} },
   computed: {
-    ...mapState(useTeamsStore, ['teams', 'teamDetails']),
+    ...mapState(useTeamsStore, ['teams']),
   },
   methods: {
     ...mapActions(useTeamsStore, ['getAllTeams']),
