@@ -1,39 +1,26 @@
 <template>
   <div class="container">
-    <div class='row row-cols-1 mx-1'>
+    <div class='row row-cols-1 ms-2'>
       <select v-model="teamId" @change="getPlayers(teamId)" style="width:auto;" aria-label="HBL team select">
         <option disabled value="">Select an HBL Team</option>
-        <option v-for="team in this.teams" :value="team.team_id" :key="team.team_id">{{team.name}}</option>
+        <option v-for="team in teams" :value="team.team_id" :key="team.team_id">{{team.name}}</option>
       </select>
     </div>
-    <div class="row">
-      <table class="table" v-show="!loading">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Pos</th>
-            <th>Team</th>
-          </tr>
-        </thead>
-        <tbody class="align-middle">
-          <tr>
-            <HblPlayer v-for="p in this.players" :key="p.player_id" :player="p" />
-          </tr>
-        </tbody>
-      </table>
+    <div class="row row-cols-1 mt-2">
+      <HblRosterTable class="ms-2" :players="players[teamId]" />
     </div>
   </div>
 </template>
 
 <script>
-import HblPlayer from '@/components/hbl/HblPlayer.vue'
+import HblRosterTable from '@/components/hbl/HblPlayer.vue'
 import { usePlayersStore } from '@/stores/usePlayersStore'
 import { useTeamsStore } from '@/stores/useTeamsStore'
 import { mapActions, mapState } from 'pinia'
 
 export default {
   name: "HblRoster",
-  components: { HblPlayer },
+  components: { HblRosterTable },
   data() { return {loading: false, teamId: 0} },
   computed: {
     ...mapState(useTeamsStore, ['teams']),

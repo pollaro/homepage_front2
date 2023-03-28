@@ -7,13 +7,17 @@ import { RouterView } from 'vue-router'</script>
   </header>
     <div class="container">
       <nav class="navbar navbar-expand-lg sticky-top mb-2 mb-lg-0">
-        <router-link class="nav-item mx-1" to="/">Home</router-link>
-        <router-link class="nav-item mx-1" to="/hbl">HBL</router-link>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><router-link class="nav-link" to="/">Home</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/hbl">HBL</router-link></li>
+        </ul>
       </nav>
     </div>
   <router-view />
 </template>
 
 <style scoped>
-
+  .nav-item {
+    font-size: 1.5rem;
+  }
 </style>
