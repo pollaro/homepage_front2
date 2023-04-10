@@ -9,6 +9,7 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item"><router-link class='nav-link' to='/hbl/teams'>Teams</router-link></li>
           <li class="nav-item"><router-link class='nav-link' to='/hbl/roster'>Rosters</router-link></li>
+          <li class="nav-item"><router-link class='nav-link' to='/hbl/prospects'>Prospects</router-link></li>
         </ul>
       </nav>
     </div>

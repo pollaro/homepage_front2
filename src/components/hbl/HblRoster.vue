@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import HblRosterTable from '@/components/hbl/HblPlayer.vue'
+import HblRosterTable from '@/components/hbl/HblRosterTable.vue'
 import { usePlayersStore } from '@/stores/usePlayersStore'
 import { useTeamsStore } from '@/stores/useTeamsStore'
 import { mapActions, mapState } from 'pinia'
@@ -41,10 +41,7 @@ export default {
     },
   },
   created() {
-    if (typeof(this.teamId) === 'undefined') {
-      this.teamId = 0
-    }
-    if (this.teams.length === 0) {
+    if (this.teams.length === 0 || typeof(this.teamId) === 'undefined') {
       this.loading = true
       this.getTeams()
       this.loading = false

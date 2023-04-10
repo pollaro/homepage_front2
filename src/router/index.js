@@ -1,3 +1,4 @@
+import HblProspectRoster from '@/components/hbl/HblProspectRoster.vue'
 import HblRoster from '@/components/hbl/HblRoster.vue'
 import HblTeams from '@/components/hbl/HblTeams.vue'
 import HblHome from '@/views/hbl/HblHome.vue'
@@ -31,6 +32,16 @@ const router = createRouter({
           path: 'roster/:id',
           name: 'team roster',
           component: HblRoster
+        },
+        {
+          path: 'prospects',
+          name: 'prospect home',
+          component: HblProspectRoster
+        },
+        {
+          path: 'prospects/:id',
+          name: 'prospect list',
+          component: HblProspectRoster
         }
       ]
     }
