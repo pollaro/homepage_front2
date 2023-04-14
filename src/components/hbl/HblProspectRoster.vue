@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row align-items-center">
       <div class='col ms-2'>
-
+        <HBLProspectTransaction :prospects="allProspects"/>
       </div>
       <div class='col ms-2'>
         <HblProspectTotal class="ms-2" :teams="teams" :prospects="allProspects" />
@@ -17,13 +17,14 @@
 <script>
 import HblProspect from '@/components/hbl/HblProspect.vue'
 import HblProspectTotal from '@/components/hbl/HblProspectTotal.vue'
+import HBLProspectTransaction from '@/components/hbl/HBLProspectTransaction.vue'
 import { useProspectsStore } from '@/stores/useProspectsStore'
 import { useTeamsStore } from '@/stores/useTeamsStore'
 import { mapActions, mapState } from 'pinia'
 
 export default {
   name: "HblProspectRoster",
-  components: { HblProspectTotal, HblProspect },
+  components: { HBLProspectTransaction, HblProspectTotal, HblProspect },
   data() { return {loading: false, teamId: 0} },
   computed: {
     ...mapState(useTeamsStore, ['teams']),

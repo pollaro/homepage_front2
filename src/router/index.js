@@ -44,6 +44,10 @@ const router = createRouter({
           component: HblProspectRoster
         }
       ]
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: HomeView
     }
   ]
 })

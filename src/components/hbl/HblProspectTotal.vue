@@ -19,12 +19,11 @@
 export default {
   name: "HblProspectTotal",
   props: ['prospects', 'teams'],
-  data() {},
+  data() { return {} },
   computed: {
     totalProspectsPerTeam() {
       let totalProspectsPerTeam = {}
       for (let prospect of this.prospects) {
-        console.log(prospect.hbl_team.name)
         if (prospect.hbl_team.name in totalProspectsPerTeam) {
           totalProspectsPerTeam[prospect.hbl_team.name]++
         } else {
