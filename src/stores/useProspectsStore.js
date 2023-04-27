@@ -37,13 +37,15 @@ export const useProspectsStore = defineStore('prospects', {
           position: position
         })
         .then((response) => {
-          this.prospects.push({
+          console.log(response)
+          this.prospects[response.data.hbl_team.id].push({
             first_name: firstName,
             last_name: lastName,
             team_name: mlbTeam,
-            display_positions: position
+            display_positions: position,
+            hbl_team: { name: response.data.hbl_team.name, id: response.data.hbl_team.id }
           })
-          return response
+          return response.data
         })
         .catch((error) => {
           return error
@@ -61,13 +63,15 @@ export const useProspectsStore = defineStore('prospects', {
           position: position
         })
         .then((response) => {
-          this.prospects.filter(
+          this.prospects[response.data.hbl_team.id] = this.prospects[
+            response.data.hbl_team.id
+          ].filter(
             (prospect) =>
               prospect.first_name != firstName &&
               prospect.last_name != lastName &&
               prospect.team_name != mlbTeam
           )
-          return response
+          return response.data
         })
         .catch((error) => {
           return error

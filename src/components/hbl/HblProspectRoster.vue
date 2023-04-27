@@ -20,7 +20,7 @@ import HblProspectTotal from '@/components/hbl/HblProspectTotal.vue'
 import HBLProspectTransaction from '@/components/hbl/HBLProspectTransaction.vue'
 import { useProspectsStore } from '@/stores/useProspectsStore'
 import { useTeamsStore } from '@/stores/useTeamsStore'
-import { mapActions, mapState } from 'pinia'
+import { mapActions, mapState, mapWritableState } from 'pinia'
 
 export default {
   name: "HblProspectRoster",
@@ -28,7 +28,7 @@ export default {
   data() { return {loading: false, teamId: 0} },
   computed: {
     ...mapState(useTeamsStore, ['teams']),
-    ...mapState(useProspectsStore, ['prospects']),
+    ...mapWritableState(useProspectsStore, ['prospects']),
     allProspects() {
       let all = []
       for(let list of Object.values(this.prospects)) {

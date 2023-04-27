@@ -32,7 +32,7 @@ export default {
   computed: {
     displayProspects() {
       return [...this.prospects].sort((a, b) => {
-        return a[this.sortKey] >= b[this.sortKey] ? this.reverse : -1 * this.reverse
+        return a[this.sortKey].toUpperCase() >= b[this.sortKey].toUpperCase() ? this.reverse : -1 * this.reverse
       })
     }
   },
