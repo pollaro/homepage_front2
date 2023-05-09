@@ -8,7 +8,7 @@ export const usePlayersStore = defineStore('players', {
   actions: {
     getRoster(team_id) {
       if (!(team_id in this.players)) {
-        return axios.get('/hbl/roster/' + team_id).then((response) => {
+        return axios.get('/api/hbl/roster/' + team_id).then((response) => {
           this.players[team_id] = JSON.parse(response.data)
         })
       }

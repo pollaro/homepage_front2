@@ -9,14 +9,14 @@ export const useTeamsStore = defineStore('teams', {
   actions: {
     getAllTeams() {
       if (this.teams.length == 0) {
-        return axios.get('/hbl/teams').then((response) => {
+        return axios.get('/api/hbl/teams').then((response) => {
           this.teams = response.data
         })
       }
     },
     getTeamDetails(teamId) {
       if (!(teamId in this.teamDetails)) {
-        return axios.get('/hbl/team/' + teamId).then((response) => {
+        return axios.get('/api/hbl/team/' + teamId).then((response) => {
           this.teamDetails[teamId] = response.data
         })
       }

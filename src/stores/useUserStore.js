@@ -7,7 +7,7 @@ export const useUserStore = defineStore('user', {
   }),
   actions: {
     login() {
-      return axios.post('/hbl/login/', {}).then((response) => {
+      return axios.post('/api/hbl/login/', {}).then((response) => {
         let win = window.open(response.data)
         let checkWin = setInterval(() => {
           if (!win || !win.closed) {
@@ -22,7 +22,7 @@ export const useUserStore = defineStore('user', {
       this.loggedIn = false
     },
     check() {
-      return axios.get('/hbl/check').then((response) => {
+      return axios.get('/api/hbl/check').then((response) => {
         this.loggedIn = response.data
       })
     }

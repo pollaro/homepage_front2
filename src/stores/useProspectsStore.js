@@ -9,7 +9,7 @@ export const useProspectsStore = defineStore('prospects', {
     getProspectList(team_id = 0) {
       if (team_id === 0) {
         this.prospects = {}
-        return axios.get('/hbl/prospects').then((response) => {
+        return axios.get('/api/hbl/prospects').then((response) => {
           return JSON.parse(response.data).forEach((prospect) => {
             if (prospect.hbl_team.id in this.prospects) {
               this.prospects[prospect.hbl_team.id].push(prospect)
@@ -20,7 +20,7 @@ export const useProspectsStore = defineStore('prospects', {
           })
         })
       } else if (!(team_id in this.prospects)) {
-        return axios.get('/hbl/prospects/' + team_id).then((response) => {
+        return axios.get('/api/hbl/prospects/' + team_id).then((response) => {
           this.prospects[team_id] = JSON.parse(response.data)
         })
       }
@@ -30,7 +30,7 @@ export const useProspectsStore = defineStore('prospects', {
       const firstName = prospectSplit.shift()
       const lastName = prospectSplit.join(' ')
       return axios
-        .post('/hbl/prospects/add', {
+        .post('/api/hbl/prospects/add', {
           first_name: firstName,
           last_name: lastName,
           mlb_team: mlbTeam,
@@ -56,7 +56,7 @@ export const useProspectsStore = defineStore('prospects', {
       const firstName = prospectSplit.shift()
       const lastName = prospectSplit.join(' ')
       return axios
-        .post('/hbl/prospects/remove', {
+        .post('/api/hbl/prospects/remove', {
           first_name: firstName,
           last_name: lastName,
           mlb_team: mlbTeam,

@@ -4,31 +4,23 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
-const defaultConfig = {
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },
-  envDir: '.'
-}
-export default defineConfig(({ command, mode }) => {
-  if (command === 'serve') {
-    const isDev = mode === 'development'
-    return {
-      ...defaultConfig,
-      server: {
-        proxy: {
-          '/hbl/': {
-            target: isDev ? 'https://127.0.0.1:8000' : 'https://jimpollaro.com:8000',
-            changeOrigin: true,
-            secure: false
-          }
+export default defineConfig(() => {
+  return {
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
+    },
+    envDir: '.',
+    server: {
+      proxy: {
+        '^/api/.*': {
+          target: 'https://127.0.0.1:8000',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     }
-  } else {
-    return defaultConfig
   }
 })
