@@ -1,3 +1,5 @@
+import AboutComponent from '@/components/AboutComponent.vue'
+import ContactComponent from '@/components/ContactComponent.vue'
 import HblProspectRoster from '@/components/hbl/HblProspectRoster.vue'
 import HblRoster from '@/components/hbl/HblRoster.vue'
 import HblTeams from '@/components/hbl/HblTeams.vue'
@@ -11,7 +13,19 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      children: [
+        {
+          path: 'about',
+          name: 'about',
+          component: AboutComponent
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: ContactComponent
+        }
+      ]
     },
     {
       path: '/hbl',
